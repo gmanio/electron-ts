@@ -1,0 +1,3 @@
+@import "../assets/scss/_common.scss";
+header { position: fixed; top: 0; width: 100%; height: 35px; background: brown; z-index: 1000 }
+.example-container { position: relative; top: 35px }

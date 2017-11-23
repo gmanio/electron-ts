@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 import * as process from 'process';
@@ -10,12 +10,15 @@ require('electron-reload')(process.cwd(), {
   hardResetMethod: 'exit'
 });
 
-
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     height: 600,
-    width: 400,
+    width: 1000,
+    webPreferences: {
+      nodeIntegrationInWorker: true
+    },
+    titleBarStyle: 'hiddenInset'
   });
 
   // and load the index.html of the app.
@@ -26,7 +29,7 @@ function createWindow() {
   // }));
 
   mainWindow.loadURL(url.format({
-    pathname: 'm.naver.com',
+    pathname: 'localhost:5000',
     protocol: 'http:',
     slashes: true,
   }));
@@ -44,6 +47,9 @@ function createWindow() {
   });
 }
 
+
+// app.getFileIcon(process.cwd() + '/electron/icon/ico.png');
+app.dock.setIcon(process.cwd() + '/electron/icon/ico.png');
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -68,3 +74,13 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+ipcMain.on('asynchronous-message', (event, arg) => {
+  console.log(arg);  // prints "ping"
+  event.sender.send('asynchronous-reply', 'pong');
+})
+
+ipcMain.on('synchronous-message', (event, arg) => {
+  console.log(arg); // prints "ping"
+  event.returnValue = 'pong';
+});

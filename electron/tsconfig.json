@@ -1,6 +1,8 @@
 {
+  "extends": "../tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
+    "module": "commonjs",
     "outDir": "./",
     "sourceMap": true,
     "declaration": false,
@@ -12,7 +14,7 @@
       "node_modules/@types"
     ],
     "lib": [
-      "es2017",
+      "es2015",
       "dom"
     ]
   }
