@@ -43,3 +43,4 @@ Thumbs.db
 
 # electron build
 /electron/*.js
+dist/

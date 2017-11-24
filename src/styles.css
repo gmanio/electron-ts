@@ -49,3 +49,4 @@ html, body { height: 100% }
 .g-invisible { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px) }
 .j-hidden { overflow: hidden }
 * { user-select: none }
+::selection { background: white; /* WebKit/Blink Browsers */ }

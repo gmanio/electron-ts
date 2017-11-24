@@ -1,14 +1,16 @@
-import { app, BrowserWindow, dialog, ipcMain } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain, Tray } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 import * as process from 'process';
 
+console.log(process.env);
+
 let mainWindow: Electron.BrowserWindow;
-// console.log(__dirname);
-require('electron-reload')(process.cwd(), {
-  electron: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
-  hardResetMethod: 'exit'
-});
+
+// require('electron-reload')(process.cwd(), {
+//   electron: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
+//   hardResetMethod: 'exit'
+// });
 
 function createWindow() {
   // Create the browser window.
@@ -29,7 +31,7 @@ function createWindow() {
   // }));
 
   mainWindow.loadURL(url.format({
-    pathname: 'localhost:5000',
+    pathname: '10.211.249.215:8000',
     protocol: 'http:',
     slashes: true,
   }));
@@ -49,7 +51,7 @@ function createWindow() {
 
 
 // app.getFileIcon(process.cwd() + '/electron/icon/ico.png');
-app.dock.setIcon(process.cwd() + '/electron/icon/ico.png');
+// app.dock.setIcon(process.cwd() + '/electron/icon/ico.png');
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -83,4 +85,13 @@ ipcMain.on('asynchronous-message', (event, arg) => {
 ipcMain.on('synchronous-message', (event, arg) => {
   console.log(arg); // prints "ping"
   event.returnValue = 'pong';
+});
+
+ipcMain.on('popup', (event, args) => {
+  dialog.showMessageBox({
+    type: 'info',
+    title: 'Modal Test',
+    message: 'It works',
+    buttons: ['cancel', 'confirm']
+  });
 });

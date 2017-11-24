@@ -1,3 +1,45 @@
 @import "../assets/scss/_common.scss";
 header { position: fixed; top: 0; width: 100%; height: 35px; background: brown; z-index: 1000 }
 .example-container { position: relative; top: 35px }
+.icon {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  right: 0;
+  width: 1.5em;
+  perspective: 500px;
+  animation-name: logo-moving;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 2s;
+
+  &.type1 {
+    animation-delay: .5s;
+  }
+  &.type2 {
+    animation-delay: 1s;
+  }
+  &.type3 {
+    animation-delay: 1.5s;
+  }
+}
+.wrap_icon {
+  perspective: 500px;
+  position: absolute;
+  top: 5px;
+  right: 30px;
+}
+@keyframes logo-moving {
+  0% {
+    transform: translate3D(0, 0, 0) rotateY(0deg);
+  }
+  30% {
+    transform: translate3D(0, 0, 100px) rotateY(360deg);
+  }
+  80% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: translate3D(0, 0, 0px) rotateY(0deg);
+  }
+}
