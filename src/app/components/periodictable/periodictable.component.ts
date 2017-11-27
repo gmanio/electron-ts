@@ -1,9 +1,8 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit } from '@angular/core';
 
 declare var THREE;
 declare var requestAnimationFrame;
 
-// import * as TWEEN from 'three/examples/js/libs/tween.min.js';
 import 'three/examples/js/objects/Reflector.js';
 import 'three/examples/js/controls/OrbitControls.js';
 
@@ -26,6 +25,11 @@ export class PeriodictableComponent implements OnInit, AfterViewInit {
   public cameraControls;
   public sphereGroup;
   public smallSphere;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(){
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+  }
 
   constructor(private el: ElementRef) {
   }

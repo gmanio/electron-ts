@@ -3,28 +3,19 @@ import * as path from 'path';
 import * as url from 'url';
 import * as process from 'process';
 
-const env = process.env.NODE_ENV;
 
-let mainWindow: Electron.BrowserWindow;
-// console.log(path.join(process.cwd(), 'src/assets/icon/ico.png'));
-if ( env !== 'production' ) {
-  require('electron-reload')(process.cwd(), {
-    electron: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
-    hardResetMethod: 'exit'
-  });
-}
 // app.getFileIcon(path.join(__dirname, 'icon', 'ico.png'), (error) => {
 //   console.log(error);
 // });
+
+let mainWindow: Electron.BrowserWindow;
 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     height: 600,
     width: 1000,
-    webPreferences: { nodeIntegrationInWorker: true },
-    titleBarStyle: 'hidden',
-    backgroundColor: '#312450'
+    titleBarStyle: 'hidden'
   });
 
   // and load the index.html of the app.
@@ -35,7 +26,7 @@ function createWindow() {
   // }));
 
   mainWindow.loadURL(url.format({
-    pathname: '10.211.249.215:8000',
+    pathname: 'localhost:8000',
     protocol: 'http:',
     slashes: true,
   }));
@@ -53,12 +44,8 @@ function createWindow() {
     mainWindow = null;
   });
 
-  // const appIcon = new Tray(path.join(__dirname, 'icon', 'ico.png'));
 }
 
-
-// app.getFileIcon(process.cwd() + '/electron/icon/ico.png');
-// app.dock.setIcon(process.cwd() + '/electron/icon/ico.png');
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

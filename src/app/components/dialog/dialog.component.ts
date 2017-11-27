@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 declare var electron: any;
-
+declare var window;
+// const { ipcRenderer } = window.require('electron');
 
 @Component({
   selector: 'app-dialog',
@@ -9,8 +9,6 @@ declare var electron: any;
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-  public ipcRenderer: any;
-
   constructor() {
     // this.ipcRenderer = electron.ipcRenderer;
   }
@@ -19,7 +17,7 @@ export class DialogComponent implements OnInit {
   }
 
   onClickDialog() {
-    // this.ipcRenderer.send('popup', ['test']);
+    // ipcRenderer.send('popup', ['test']);
   }
 
 
