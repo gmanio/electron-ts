@@ -6,24 +6,25 @@ import * as process from 'process';
 const env = process.env.NODE_ENV;
 
 let mainWindow: Electron.BrowserWindow;
-
+// console.log(path.join(process.cwd(), 'src/assets/icon/ico.png'));
 if ( env !== 'production' ) {
   require('electron-reload')(process.cwd(), {
     electron: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
     hardResetMethod: 'exit'
   });
 }
-
+// app.getFileIcon(path.join(__dirname, 'icon', 'ico.png'), (error) => {
+//   console.log(error);
+// });
 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     height: 600,
     width: 1000,
-    webPreferences: {
-      nodeIntegrationInWorker: true
-    },
-    titleBarStyle: 'hiddenInset'
+    webPreferences: { nodeIntegrationInWorker: true },
+    titleBarStyle: 'hidden',
+    backgroundColor: '#312450'
   });
 
   // and load the index.html of the app.
@@ -51,6 +52,8 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+  // const appIcon = new Tray(path.join(__dirname, 'icon', 'ico.png'));
 }
 
 
