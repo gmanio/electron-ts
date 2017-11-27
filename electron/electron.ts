@@ -3,14 +3,17 @@ import * as path from 'path';
 import * as url from 'url';
 import * as process from 'process';
 
-console.log(process.env);
+const env = process.env.NODE_ENV;
 
 let mainWindow: Electron.BrowserWindow;
 
-// require('electron-reload')(process.cwd(), {
-//   electron: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
-//   hardResetMethod: 'exit'
-// });
+if ( env !== 'production' ) {
+  require('electron-reload')(process.cwd(), {
+    electron: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
+    hardResetMethod: 'exit'
+  });
+}
+
 
 function createWindow() {
   // Create the browser window.
@@ -39,6 +42,7 @@ function createWindow() {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

@@ -50,3 +50,4 @@ html, body { height: 100% }
 .j-hidden { overflow: hidden }
 * { user-select: none }
 ::selection { background: white; /* WebKit/Blink Browsers */ }
+body { position: absolute; width: 100%; height: 100%; background: #fff }
