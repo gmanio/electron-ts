@@ -1,8 +1,13 @@
 import { app, BrowserWindow, dialog, ipcMain, Tray } from 'electron';
-import * as path from 'path';
+import * as devtron from 'devtron';
 import * as url from 'url';
 import * as process from 'process';
+import * as path from 'path';
 
+require('electron-reload')(process.cwd(), {
+  electron: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
+  hardResetMethod: 'exit'
+});
 
 // app.getFileIcon(path.join(__dirname, 'icon', 'ico.png'), (error) => {
 //   console.log(error);
@@ -33,7 +38,7 @@ function createWindow() {
 
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
 
   // Emitted when the window is closed.
@@ -44,6 +49,7 @@ function createWindow() {
     mainWindow = null;
   });
 
+  devtron.install();
 }
 
 // This method will be called when Electron has finished
