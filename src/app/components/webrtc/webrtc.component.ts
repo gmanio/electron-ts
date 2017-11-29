@@ -26,11 +26,8 @@ export class WebrtcComponent implements OnInit, AfterViewInit, AfterViewChecked 
 
   ngAfterViewInit() {
     this.stream$ = fromPromise(navigator.mediaDevices.getUserMedia({ video: true, audio: false }));
-    this.canvas.width = 100;
-    this.canvas.height = 100;
-    // debugger;
-
-
+    this.canvas.width = 300;
+    this.canvas.height = 300;
   }
 
   ngAfterViewChecked(): void {
@@ -38,17 +35,5 @@ export class WebrtcComponent implements OnInit, AfterViewInit, AfterViewChecked 
       this.canvas.getContext('2d').drawImage(this.video.nativeElement, 0, 0, this.canvas.width , this.canvas.height);
     }
   }
-
-  //   this.elVideo = this.el.nativeElement.querySelector('video');
-  //   this.elCanvas = this.el.nativeElement.querySelector('canvas');
-  //   this.elCanvas.width = 1000;
-  //   this.elCanvas.height = 1000;
-  //   this.elCanvas.getContext('2d').drawImage(this.elVideo, 0, 0, this.elCanvas.width, this.elCanvas.height);
-  //
-  //   window.stream = fromPromise(navigator.mediaDevices.getUserMedia({ video: true, audio: false }));
-  //   this.stream$ = fromPromise(navigator.mediaDevices.getUserMedia({ video: true, audio: false }));
-  //   this.cd.detectChanges();
-  // }
-
 
 }

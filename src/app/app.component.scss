@@ -1,6 +1,31 @@
-@import "../assets/scss/_common.scss";
-header { position: fixed; top: 0; width: 100%; height: 35px; background: brown; z-index: 1000 }
-.example-container { position: relative; top: 35px }
+header { position: fixed; top: 0; width: 100%; height: 35px; background: brown }
+.container { position: relative; top: 35px }
+button { position: relative; display: inline-flex; width: auto; height: 35px; line-height: 35px; border: 1px solid black; z-index: 10 }
+.window {
+  float: left;
+  margin: 0 4px;
+  position: relative;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 0;
+  line-height: 35px;
+  border-radius: 15px;
+  z-index: 100;
+  &.red { background: #ff4444 }
+  &.yellow { background: #ffcc44 }
+  &.green { background: limegreen }
+}
+.button-row {
+  float: left;
+  position: fixed;
+  top: 0;
+  padding-left: 4px;
+  display: inline-block;
+  height: 35px;
+  line-height: 25px;
+  z-index: 100;
+}
 .icon {
   position: relative;
   display: inline-block;

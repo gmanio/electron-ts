@@ -16,6 +16,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { WebrtcComponent } from './components/webrtc/webrtc.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { AppComponent } from './app.component';
+import { ElectronService } from './serivces/electron.service';
 
 @NgModule(<NgModule>{
   declarations: [
@@ -57,7 +58,7 @@ import { AppComponent } from './app.component';
     MatDialogModule,
     MatStepperModule
   ],
-  providers: [],
+  providers: [ElectronService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

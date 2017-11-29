@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare var electron: any;
-declare var window;
-const { ipcRenderer } = window.require('electron');
+import { ElectronService } from '../../serivces/electron.service';
 
 @Component({
   selector: 'app-dialog',
@@ -9,27 +7,13 @@ const { ipcRenderer } = window.require('electron');
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-  constructor() {
-    // this.ipcRenderer = electron.ipcRenderer;
+  constructor(private electron: ElectronService) {
   }
 
   ngOnInit() {
   }
 
   onClickDialog() {
-    ipcRenderer.send('popup', ['test']);
-  }
-
-
-  openDialog(): void {
-    // let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-    //   width: '250px',
-    //   data: { name: this.name, animal: this.animal }
-    // });
-    //
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.animal = result;
-    // });
+    this.electron.send('popup', ['test']);
   }
 }

@@ -9,15 +9,14 @@ export class NotificationComponent implements OnInit {
   oNotice: Notification;
 
   constructor() {
-
   }
 
   ngOnInit() {
   }
 
   notify() {
-    this.oNotice = new Notification('title', {
-      body: 'Lorem Ipsum Dolor Sit Amet',
+    this.oNotice = new Notification('Notification', {
+      body: 'Notification::Notification::Notification',
       icon: 'http://upload.wikimedia.org/wikipedia/en/thumb/8/8e/AppleSiriIcon2017.png/128px-AppleSiriIcon2017.png'
     });
   }

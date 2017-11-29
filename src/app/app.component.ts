@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ElectronService } from './serivces/electron.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private electron: ElectronService) {
+  }
+
+  onClickQuit() {
+    this.electron.quit();
+  }
+
+  onClickHide() {
+    this.electron.hide();
+  }
+
+  onClickFull() {
+    this.electron.fullScreen();
+  }
 }
