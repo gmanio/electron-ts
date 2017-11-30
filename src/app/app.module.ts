@@ -1,12 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-MatButtonModule,
-MatCardModule, MatDialogModule, MatExpansionModule, MatFormFieldModule, MatSelectModule, MatSidenavModule, MatSliderModule,
-MatStepperModule,
-MatTabsModule
+  MatButtonModule,
+  MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatExpansionModule, MatFormFieldModule, MatNativeDateModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatStepperModule,
+  MatTabsModule,
+  MatInputModule,
 } from '@angular/material';
 import { PeriodictableComponent } from './components/periodictable/periodictable.component';
 import { NotificationComponent } from './components/notification/notification.component';
@@ -32,8 +38,11 @@ import { ElectronService } from './serivces/electron.service';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatInputModule,
+    MatCheckboxModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatTabsModule,
@@ -42,12 +51,18 @@ import { ElectronService } from './serivces/electron.service';
     MatSidenavModule,
     MatButtonModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     BrowserAnimationsModule,
     BrowserModule,
     MatCardModule,
+    MatInputModule,
+    MatCheckboxModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatTabsModule,
@@ -56,7 +71,11 @@ import { ElectronService } from './serivces/electron.service';
     MatSidenavModule,
     MatButtonModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [ElectronService],
   bootstrap: [AppComponent]

@@ -14,8 +14,8 @@ let mainWindow: Electron.BrowserWindow;
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    height: 600,
-    width: 1000,
+    height: 720,
+    width: 1080,
     title: 'musicmate',
     titleBarStyle: 'hidden',
     frame: false
@@ -29,11 +29,10 @@ const createWindow = () => {
   }));
 
   // mainWindow.loadURL(url.format({
-  //   pathname: '10.211.249.215:8000',
+  //   pathname: 'localhost:8000',
   //   protocol: 'http:',
-  //   slashes: true,
+  //   slashes: true
   // }));
-
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
@@ -80,9 +79,17 @@ app.on('activate', () => {
 ipcMain.on('popup', (event, args) => {
   dialog.showMessageBox({
     type: 'info',
-    title: 'Modal Test',
+    title: '[info] Modal Test',
     message: 'It works',
     buttons: ['cancel', 'confirm']
+  });
+});
+
+ipcMain.on('error', (event, args) => {
+  dialog.showMessageBox({
+    type: 'error',
+    title: '[error] Modal Error',
+    message: 'It works'
   });
 });
 

@@ -26,8 +26,8 @@ export class WebrtcComponent implements OnInit, AfterViewInit, AfterViewChecked 
 
   ngAfterViewInit() {
     this.stream$ = fromPromise(navigator.mediaDevices.getUserMedia({ video: true, audio: false }));
-    this.canvas.width = 300;
-    this.canvas.height = 300;
+    this.canvas.width = 500;
+    this.canvas.height = 500;
   }
 
   ngAfterViewChecked(): void {

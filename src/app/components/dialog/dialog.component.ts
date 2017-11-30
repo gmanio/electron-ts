@@ -16,4 +16,8 @@ export class DialogComponent implements OnInit {
   onClickDialog() {
     this.electron.send('popup', ['test']);
   }
+
+  onClickErrorDialog() {
+    this.electron.send('error');
+  }
 }

@@ -1,1 +1,12 @@
 <button mat-button (click)="notify()">Notify!</button>
+<input matInput [matDatepicker]="picker" placeholder="Choose a date">
+<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker #picker></mat-datepicker>
+<br>
+<br>
+<br>
+<mat-spinner></mat-spinner>
+<br>
+<br>
+<br>
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>

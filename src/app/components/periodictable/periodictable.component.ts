@@ -152,7 +152,6 @@ export class PeriodictableComponent implements OnInit, AfterViewInit {
     this.smallSphere.rotation.y = ( Math.PI / 2 ) - timer * 0.1;
     this.smallSphere.rotation.z = timer * 0.8;
     this.renderer.render(this.scene, this.camera);
-
   }
 }
 
